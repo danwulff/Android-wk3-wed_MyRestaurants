@@ -19,7 +19,7 @@ import org.w3c.dom.Text;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private static final String TAG = MainActivity.class.getSimpleName();
 
     @Bind(R.id.findRestaurantsButton) Button mFindRestaurantsButton;
@@ -37,15 +37,17 @@ public class MainActivity extends AppCompatActivity {
         Typeface pacifico = Typeface.createFromAsset(getAssets(), "fonts/Pacifico.ttf");
         mAppNameTextView.setTypeface(pacifico);
 
-        mFindRestaurantsButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String location = mLocationEditText.getText().toString();
+        mFindRestaurantsButton.setOnClickListener(this);
 
-                Intent intent = new Intent(MainActivity.this, RestaurantsActivity.class);
-                intent.putExtra("location", location);
-                startActivity(intent);
-            }
-        });
+    }
+
+    @Override
+    public void onClick(View view) {
+        if(view == mFindRestaurantsButton){
+            String location = mLocationEditText.getText().toString();
+            Intent intent = new Intent(MainActivity.this, RestaurantsActivity.class);
+            intent.putExtra("location", location);
+            startActivity(intent);
+        }
     }
 }
