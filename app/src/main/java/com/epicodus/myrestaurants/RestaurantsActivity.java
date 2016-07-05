@@ -12,6 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -24,12 +25,14 @@ public class RestaurantsActivity extends AppCompatActivity {
 
     @Bind(R.id.listView) ListView mListView;
     @Bind(R.id.locationTextView) TextView mLocationTextView;
+
+    public ArrayList<Restaurant> mRestaurants = new ArrayList<>();
+
     private String[] restaurants = new String[] {"Mi Mero Mole", "Mother's Bistro",
             "Life of Pie", "Screen Door", "Luc Lac", "Sweet Basil",
             "Slappy Cakes", "Equinox", "Miss Delta's", "Andina",
             "Lardo", "Portland City Grill", "Fat Head's Brewery",
             "Chipotle", "Subway"};
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,7 +71,10 @@ public class RestaurantsActivity extends AppCompatActivity {
             public void onResponse(Call call, Response response) throws IOException {
                 try {
                     String jsonData = response.body().string();
-                    Log.v(TAG, jsonData);
+                    if (response.isSuccessful()) {
+                        Log.v(TAG, jsonData);
+                        mRestaurants = yelpService.processResults(response);
+                    }
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
