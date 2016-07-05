@@ -4,6 +4,8 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/myRestaurants.iml" filepath="$PROJECT_DIR$/myRestaurants.iml" />
       <module fileurl="file://$PROJECT_DIR$/myRestaurants-Android-App.iml" filepath="$PROJECT_DIR$/myRestaurants-Android-App.iml" />
       <module fileurl="file://$PROJECT_DIR$/myRestaurants-Android-App.iml" filepath="$PROJECT_DIR$/myRestaurants-Android-App.iml" />
     </modules>
