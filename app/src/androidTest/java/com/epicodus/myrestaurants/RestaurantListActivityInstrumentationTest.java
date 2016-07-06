@@ -16,7 +16,7 @@ import static android.support.test.espresso.matcher.ViewMatchers.withText;
 import static org.hamcrest.Matchers.anything;
 import static org.hamcrest.core.IsNot.not;
 
-public class RestaurantsListActivityInstrumentationTest {
+public class RestaurantListActivityInstrumentationTest {
 
     @Rule
     public ActivityTestRule<RestaurantsActivity> activityTestRule =
