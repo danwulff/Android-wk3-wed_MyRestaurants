@@ -34,6 +34,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private FirebaseAuth.AuthStateListener mAuthListener;
     private ProgressDialog mAuthProgressDialog;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
