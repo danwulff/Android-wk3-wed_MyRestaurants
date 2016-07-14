@@ -1,7 +1,10 @@
 package com.epicodus.myrestaurants.ui;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -95,6 +98,7 @@ public class CreateAccountActivity extends AppCompatActivity implements View.OnC
         final String email = mEmailEditText.getText().toString().trim();
         String password = mPasswordEditText.getText().toString().trim();
         String confirmPassword = mConfirmPasswordEditText.getText().toString().trim();
+        final SharedPreferences mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
 
         boolean validEmail = isValidEmail(email);
         boolean validName = isValidName(mName);
@@ -111,6 +115,7 @@ public class CreateAccountActivity extends AppCompatActivity implements View.OnC
                 if(task.isSuccessful()) {
                     Log.d(TAG, "Authentication successful");
                     createFirebaseUserProfile(task.getResult().getUser());
+                    mSharedPreferences.edit().clear().commit();
                 } else {
                     Toast.makeText(CreateAccountActivity.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
                 }
